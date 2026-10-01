@@ -24,19 +24,25 @@ while True:
     if opcion == "7":
         break
     if opcion in ("1" , "2" , "3" , "4" , "5" , "6"):
-        num = float (input("Ingrese primer numero: "))
-        num2 = float (input("Ingrese segundo numero: "))
-        if opcion == "1":
-            print ("Resultado: ", sumar(num,num2))
-        elif opcion == "2":
-            print ("Resultado: ", restar(num,num2))
-        elif opcion == "3":
-            print ("Resultado: ", multiplicar(num,num2))
-        elif opcion == "4":
-            print ("Resultado: ", dividir(num,num2))
-        elif opcion == "5":
-            print ("Resultado: ", modulo(num,num2))
-        elif opcion == "6":
-            print ("Resultado: ", exponente(num,num2))
+        try:
+            num = float (input("Ingrese primer numero: "))
+            num2 = float (input("Ingrese segundo numero: "))
+            if opcion == "1":
+                print ("Resultado: ", sumar(num,num2))
+            elif opcion == "2":
+                print ("Resultado: ", restar(num,num2))
+            elif opcion == "3":
+                print ("Resultado: ", multiplicar(num,num2))
+            elif opcion == "4":
+                if num2 == 0:
+                    print("No se puede dividir entre 0")
+                else:
+                    print("Resultado: ", dividir(num,num2))
+            elif opcion == "5":
+                print ("Resultado: ", modulo(num,num2))
+            elif opcion == "6":
+                print ("Resultado: ", exponente(num,num2))
+        except ValueError:
+            print("ERROR, debes introducir un numero")
     else:
         print("Opcion no valida")
